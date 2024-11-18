@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Bienvenue sur Mon Portfolio</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">A propos</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>A propos de moi</h2>
+        <div class="about-container">
+            <div class="profile-container">
+                <img src="Images1.jpg" alt="Mon Portrait" class="profile-pic">
+                <div id="about-text">
+                    <p>Je suis un développeur débutant passionné par le web et les technologies. Depuis plusieurs
+                        années, je me consacre à l'apprentissage des langages de programmation et à la création de
+                        projets web. Mon objectif est de créer des applications intuitives et performantes qui répondent
+                        aux besoins des utilisateurs. J'ai acquis des compétences en HTML, CSS, JavaScript, et d'autres
+                        technologies comme PHP et MySQL. Je suis toujours à la recherche de nouvelles opportunités pour
+                        développer mes compétences et travailler sur des projets innovants.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Mes projets</h2>
+        <div class="projects-container">
+            <div class="project">
+                <h3>Projet 1</h3>
+                <p><em><strong>Gestion de réservation</strong></em></p>
+                <p>Ce projet est construit dans le cadre de la gestion hôtelière, plus particulièrement la gestion de
+                    réservation de chambres.</p>
+                <img src="Projet1.jpg" alt="Projet 1">
+            </div>
+            <div class="project">
+                <h3>Projet 2</h3>
+                <p><em><strong>Gestion de paiement de billets d'avion en ligne</strong></em></p>
+                <p>Un autre projet que j'ai réalisé récemment pour un étudiant. Ce projet consiste à la réservation de
+                    billets d'avion pour une compagnie quelconque.</p>
+                <img src="projet2.jpg" alt="Projet 2">
+            </div>
+            <div class="project">
+                <h3>Projet 3</h3>
+                <p><em><strong>Gestion de stock et des ventes</strong></em></p>
+                <p>Ce projet consiste à gérer l'inventaire d'un magasin en ligne, y compris les ventes, les commandes,
+                    et le suivi des stocks.</p>
+                <img src="projet3.jpg" alt="Projet 3">
+            </div>
+            <div class="project">
+                <h3>Projet 4</h3>
+                <p><em><strong>Application de gestion de tâches</strong></em></p>
+                <p>Cette application permet de suivre les tâches quotidiennes avec des options pour ajouter, supprimer
+                    et marquer les tâches comme terminées.</p>
+                <img src="projet4.jpg" alt="Projet 4">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contactez-moi</h2>
+        <div class="contact-container">
+            <form action="mailto:jeviccyprien@gmail.com" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <label for="name">Nom :</label>
+                    <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                </div>
+                <!--div-- class="form-group">
+                    <label for="Objet">Objet :</label>
+                    <input type="Objet" id="Objet" name="Objet" placeholder="Votre objectif" required>
+                </--div-->
+                <div class="form-group">
+                    <label for="message">Message :</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Votre message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Envoyer</button>
+            </form>
+            <p>Vous pouvez aussi m'envoyer un mail directement à <a
+                    href="mailto:jeviccyprien@gmail.com">jeviccyprien@gmail.com</a>.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <p>&copy; 2024 Mon Portfolio. Tous droits réservés.</p>
+            </div>
+            <div class="footer-center">
+                <ul>
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#projects">Projets</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-right">
+                <div class="socials">
+                    <a href="https://www.tiktok.com/@jev0123" target="_blank" class="social-icon">
+                        <img src="tiktok-icon-white-1-logo-svgrepo-com.svg" alt="TikTok">
+                    </a>
+                    <a href="https://www.facebook.com/Jevic Cyprien" target="_blank" class="social-icon">
+                        <img src="facebook-2-logo-svgrepo-com.svg" alt="Facebook">
+                    </a>
+                    <a href="https://github.com/IrJcDev" target="_blank" class="social-icon">
+                        <img src="github-svgrepo-com.svg" alt="GitHub">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Bot</title>
+    <style>
+        /* Insérez ici le style amélioré que j'ai proposé plus tôt */
+        /* Style général */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Conteneur principal */
+        #chat-box {
+            width: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* En-tête du chat */
+        #chat-header {
+            background-color: #4a90e2;
+            color: #fff;
+            padding: 15px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        /* Zone des messages */
+        #chat-messages {
+            flex: 1;
+            padding: 10px 20px;
+            overflow-y: auto;
+            background: linear-gradient(to bottom, #f9fafb, #e9ecf1);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* Style des messages */
+        .message {
+            max-width: 70%;
+            padding: 10px 15px;
+            border-radius: 15px;
+            font-size: 14px;
+            line-height: 1.5;
+            word-wrap: break-word;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .message.user {
+            align-self: flex-end;
+            background-color: #4a90e2;
+            color: #fff;
+        }
+
+        .message.bot {
+            align-self: flex-start;
+            background-color: #f1f1f1;
+            color: #333;
+        }
+
+        /* Zone de saisie */
+        #chat-text {
+            border: none;
+            padding: 15px;
+            font-size: 14px;
+            width: 100%;
+            border-top: 1px solid #ddd;
+            outline: none;
+        }
+
+        #chat-text:focus {
+            background-color: #f9f9f9;
+        }
+
+        /* Bouton d'envoi */
+        #send-btn {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 0 0 10px 10px;
+            outline: none;
+            transition: background-color 0.3s ease;
+        }
+
+        #send-btn:hover {
+            background-color: #357abd;
+        }
+
+        /* Ajout d'une animation subtile */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message {
+            animation: fadeIn 0.3s ease-out;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="chat-box">
+        <!-- En-tête du chat -->
+        <div id="chat-header">Bienvenue ! Cliquez ici pour masquer/afficher le chat</div>
+
+        <!-- Zone des messages -->
+        <div id="chat-messages"></div>
+
+        <!-- Zone d'entrée des messages -->
+        <div id="chat-input">
+            <input type="text" id="chat-text" placeholder="Tapez votre message ici...">
+            <button id="send-btn">Envoyer</button>
+        </div>
+    </div>
+
+    <script>
+        // Récupérer les éléments
+        const chatHeader = document.getElementById("chat-header");
+        const chatBox = document.getElementById("chat-box");
+        const chatMessages = document.getElementById("chat-messages");
+        const chatText = document.getElementById("chat-text");
+        const sendBtn = document.getElementById("send-btn");
+
+        // Fonction pour afficher les messages
+        function addMessage(content, sender) {
+            const message = document.createElement("div");
+            message.classList.add("message", sender);
+            message.textContent = content;
+            chatMessages.appendChild(message);
+            chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll en bas
+        }
+
+        // Répondre automatiquement aux visiteurs
+        function botReply(userMessage) {
+            let reply;
+            if (userMessage.includes("bonjour") || userMessage.includes("salut")) {
+                reply = "Bonjour ! Comment puis-je vous aider ?";
+            } else if (userMessage.includes("aide")) {
+                reply = "Je suis ici pour répondre à vos questions sur mon portfolio.";
+            } else {
+                reply = "Je ne suis pas sûr de comprendre. Pouvez-vous reformuler ?";
+            }
+            addMessage(reply, "bot");
+        }
+
+        // Gérer l’envoi des messages
+        sendBtn.addEventListener("click", () => {
+            const userMessage = chatText.value.trim();
+            if (userMessage) {
+                addMessage(userMessage, "user");
+                botReply(userMessage.toLowerCase());
+                chatText.value = ""; // Réinitialise la zone de saisie
+            }
+        });
+
+        // Permettre d'envoyer le message en appuyant sur "Entrée"
+        chatText.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+                sendBtn.click();
+            }
+        });
+
+        // Rendre le chat masquable (toggle)
+        chatHeader.addEventListener("click", () => {
+            const isHidden = chatMessages.style.display === "none";
+            chatMessages.style.display = isHidden ? "block" : "none";
+            document.getElementById("chat-input").style.display = isHidden ? "flex" : "none";
+        });
+
+        // Initialisation
+        chatMessages.style.display = "block";
+
+
+    </script>
+</body>
+
+</html>
